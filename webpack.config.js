@@ -13,13 +13,18 @@ module.exports = {
         test: /\.js$/,
         use: "babel-loader",
         exclude: [/node_modules/]
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: __dirname + "/src/public/index.html",
-      inject: "body"
+      inject: "body",
+      favicon: __dirname + "/src/public/favicon.png"
     })
   ],
   devServer: {
