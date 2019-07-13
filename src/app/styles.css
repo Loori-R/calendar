@@ -1,0 +1,67 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+table {
+  width: 90vw;
+  height: 80vh;
+  margin: auto;
+  text-align: left;
+  text-transform: capitalize;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  color:#808080;
+}
+thead button{
+ height: 30px;
+ color:#666666;
+ border: none;
+ border-radius: 3px;
+ box-shadow: inset 0 0 2px 1px #E4E5E5;
+}
+
+thead button:hover{
+ box-shadow: inset 0 0 4px 2px #D4D6D6;
+}
+
+.controls_months{
+  height: 30px;
+  font-size: 22px;
+  vertical-align: middle;
+  color: #000000;
+}
+.controls_months div{
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+.controls_months button{
+  text-align: center;
+  width: 30px;
+  margin: 0 8px;
+  font-size: 8px;
+}
+
+.today{
+  width: 80px;
+  font-size: 16px;
+}
+
+tbody td {
+  width: 12%;
+  height: 12%;
+  border: 1px solid #ebecec;
+  padding: 20px 15px;
+  vertical-align: text-top;
+  box-sizing: border-box;
+}
+
+.today {
+  background: #F3F4F4;
+}
+
+.another_month .date {
+  color: #CCCCCC
+}
