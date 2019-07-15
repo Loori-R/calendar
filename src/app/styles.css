@@ -1,50 +1,54 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 table {
   width: 90vw;
   height: 80vh;
+  min-height: 600px;
   margin: auto;
   text-align: left;
   text-transform: capitalize;
   border-spacing: 0px;
   border-collapse: collapse;
-  color:#808080;
-}
-thead button{
- height: 30px;
- color:#666666;
- border: none;
- border-radius: 3px;
- box-shadow: inset 0 0 2px 1px #E4E5E5;
+  color: #808080;
 }
 
-thead button:hover{
- box-shadow: inset 0 0 4px 2px #D4D6D6;
+thead button {
+  height: 30px;
+  color: #666666;
+  border: none;
+  border-radius: 3px;
+  box-shadow: inset 0 0 2px 1px #e4e5e5;
 }
 
-.controls_months{
+thead button:hover {
+  box-shadow: inset 0 0 4px 2px #d4d6d6;
+}
+
+.controls_months {
   height: 30px;
   font-size: 22px;
   vertical-align: middle;
   color: #000000;
 }
-.controls_months div{
+
+.controls_months div {
   display: flex;
   justify-content: space-between;
   height: 100%;
 }
-.controls_months button{
+
+.controls_months button {
   text-align: center;
   width: 30px;
   margin: 0 8px;
   font-size: 8px;
 }
 
-.today{
+.today {
   width: 80px;
   font-size: 16px;
 }
@@ -59,9 +63,86 @@ tbody td {
 }
 
 .today {
-  background: #F3F4F4;
+  background: #f3f4f4;
 }
 
 .another_month .date {
-  color: #CCCCCC
+  color: #cccccc;
+}
+
+.active_cell {
+  border: 2px solid #88bfeb;
+  background: #dff1fb;
+  padding: 19px 14px;
+}
+
+.event_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 400px;
+  height: 500px;
+  background: #ffffff;
+  border-radius: 5px;
+  filter: drop-shadow(0 0 4px #b3b3b3);
+}
+
+.event_form:before {
+  align-self: start;
+  content: " ";
+  position: relative;
+  left: -35px;
+  top: 20px;
+  border: 20px solid transparent;
+  border-right: 15px solid #ffffff;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.event_form p {
+  display: flex;
+  width: 80%;
+  align-self: start;
+  align-items: start;
+  margin: auto;
+}
+
+.event_form input, .event_form textarea {
+  width: 80%;
+  box-shadow: inset 0 0 4px 2px #d4d6d6;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.event_form textarea {
+  margin-top: 50px;
+  max-width: 80%;
+  height: 150px;
+}
+
+.event_form input[type="button"] {
+  width: 70px;
+  height: 30px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.event_form input[type="text"], .event_form input[type="date"] {
+  margin: 3px auto;
+  height: 40px;
+  transition: box-shadow 2s;
+}
+
+.event_form .warning {
+  box-shadow: inset 0 0 4px 2px #FF2929;
+}
+
+.event_form .close {
+  width: 90%;
+  margin: -20px auto 5px;
+  text-align: right;
+  cursor: pointer;
 }
