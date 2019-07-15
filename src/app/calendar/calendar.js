@@ -1,51 +1,47 @@
-import { weekdays, square } from "./settings";
-import getLastMonday from "./helpers/lastMonday";
-import createThead from "./header/thead";
+import { square } from "./settings";
+import addEvent from "../events/addEvent";
+import createThead from "./thead/thead";
+import DateInfo from "./helpers/dateInfo";
 
-const createCalendar = (today = new Date()) => {
-  let day = null;
-  const dateIsToday =
-    today.toLocaleDateString() === new Date().toLocaleDateString();
-  if (dateIsToday) {
-    day = today.getDate();
-  }
-  const month = today.getMonth();
-  const year = today.getFullYear();
-  const lastDayMonth = new Date(year, month - 1, 0).getDate();
-
-  const monday = getLastMonday(today);
+const createCalendar = (currentDate = new Date()) => {
+  const date = new DateInfo(currentDate);
+  const dayIsToday = date.checkDayToday();
+  const month = date.getMonth();
+  const year = date.getYear();
+  const lastDayMonth = date.getLastDay();
+  const monday = date.getLastMonday();
 
   const table = document.createElement("table");
-  const thead = createThead(today);
+  const thead = createThead(currentDate);
   const tbody = document.createElement("tbody");
-  const todayLocalStr = today.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric"
-  });
-  table.dataset.date = todayLocalStr;
+
+  table.dataset.date = date.getCurrentDate();
   table.insertAdjacentElement("afterbegin", thead);
+
+  table.addEventListener("click", e => {
+    addEvent(e);
+  });
 
   let row = document.createElement("tr");
 
   for (let i = monday; i < square + monday; i++) {
-    const dateOfDay = new Date(year, month, i);
+    const dateOfDay = new DateInfo(new Date(year, month, i));
     const dateNum = dateOfDay.getDate();
-
     const weekdayNum = dateOfDay.getDay();
-    const weekdayStr = weekdays[weekdayNum];
+    const weekdayStr = dateOfDay.getWeekday();
 
     const dateContainer = document.createElement("span");
     dateContainer.className = "date";
 
     const cell = document.createElement("td");
-
-    if (i === day) {
-      cell.className = "today";
+    cell.dataset.date = dateOfDay.getCurrentDate('short');
+    cell.classList.add("typical_day");
+    if (i === dayIsToday) {
+      cell.classList.add("today");
     }
 
     if (i < 1 || i > lastDayMonth) {
-      cell.className = "another_month";
+      cell.classList.add("another_month");
     }
 
     if (i - monday < 7) {
