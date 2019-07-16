@@ -1,4 +1,4 @@
-const insertInRoot = (targetElement, element) => {
+const insertIn = (targetElement, element) => {
   if (targetElement.hasChildNodes()) {
     targetElement.replaceChild(element, root.childNodes[0]);
   } else {
@@ -6,4 +6,4 @@ const insertInRoot = (targetElement, element) => {
   }
 };
 
-export default insertInRoot;
+export default insertIn;

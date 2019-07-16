@@ -1,34 +1,36 @@
-import eventForm from './fullEventForm'
+import eventForm from "./eventForm";
+import checkClass from "../helpers/checkClass";
 
 const addEvent = e => {
-  const checkClass = el => {
-    const str = el.classList.value;
-    return /typical_day/.test(str);
-  };
+  const target = e.target;
+  const parent = target.offsetParent;
 
-  if (!checkClass(e.target) && !checkClass(e.target.parentElement)) {
+  const elHasClass = checkClass(e.target, "typical_day");
+  const parHasClass = checkClass(parent, "typical_day");
+
+  if (!elHasClass && !parHasClass) {
     return;
   }
 
-const elem = checkClass(e.target) ? e.target : e.target.parentElement;
-
-
-    const coordinate = elem.getBoundingClientRect()
-    const right = coordinate.right + pageXOffset
-    const top = coordinate.top + pageYOffset
-    // есть ли у элемента класс, если есть то взять его координаты, если есть у его родителя, то кординаты родителя
+  const elem = elHasClass ? e.target : parent;
   const date = elem.dataset.date;
 
-
+  const coordinate = elem.getBoundingClientRect();
+  const right = coordinate.right + pageXOffset;
+  const top = coordinate.top + pageYOffset;
 
   const activeCell = document.querySelector(".active_cell");
   if (activeCell) {
     activeCell.classList.remove("active_cell");
-    document.getElementById("form_event").remove(1);
   }
 
-    elem.insertAdjacentElement("beforeend", eventForm(top,right,date));
-    elem.classList.toggle("active_cell");
+  const activeEventForm = document.getElementById("form_event");
+  if (activeEventForm) {
+    activeEventForm.remove(1);
+  }
+
+  elem.insertAdjacentElement("beforeend", eventForm(top, right, date, elem));
+  elem.classList.toggle("active_cell");
 };
 
 export default addEvent;

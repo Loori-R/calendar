@@ -1,5 +1,5 @@
 import createCalendar from "../calendar";
-import insertInRoot from "../insert";
+import insertIn from "../helpers/insert";
 
 const btnNext = document.createElement("button");
 btnNext.textContent = "▶";
@@ -12,7 +12,7 @@ const clickMonth = param => {
   const tableDate = root.firstChild.dataset.date;
   const date = new Date(tableDate);
   date.setMonth(date.getMonth() + param);
-  insertInRoot(root, createCalendar(date));
+  insertIn(root, createCalendar(date));
 };
 
 btnNext.addEventListener("click", ()=>{clickMonth(+1)});

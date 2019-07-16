@@ -2,6 +2,7 @@ import { square } from "./settings";
 import addEvent from "../events/addEvent";
 import createThead from "./thead/thead";
 import DateInfo from "./helpers/dateInfo";
+import eventTemplate from "../events/template/eventTemplate";
 
 const createCalendar = (currentDate = new Date()) => {
   const date = new DateInfo(currentDate);
@@ -34,7 +35,8 @@ const createCalendar = (currentDate = new Date()) => {
     dateContainer.className = "date";
 
     const cell = document.createElement("td");
-    cell.dataset.date = dateOfDay.getCurrentDate('short');
+    cell.dataset.date = dateOfDay.getCurrentDate("short");
+
     cell.classList.add("typical_day");
     if (i === dayIsToday) {
       cell.classList.add("today");
@@ -56,6 +58,18 @@ const createCalendar = (currentDate = new Date()) => {
     } else {
       dateContainer.textContent = dateNum;
       cell.insertAdjacentElement("beforeend", dateContainer);
+    }
+
+    const eventDay = localStorage.getItem(cell.dataset.date);
+    if (eventDay) {
+      cell.dataset.event = true;
+      cell.classList.add('has_event')
+      const infoEvent = JSON.parse(eventDay);
+      const eventName = infoEvent.eventName;
+      const description = infoEvent.description || "";
+      const participants = infoEvent.participants || "";
+      const eventHTML = eventTemplate(eventName, participants, description);
+      cell.insertAdjacentHTML("beforeend", eventHTML);
     }
 
     row.insertAdjacentElement("beforeend", cell);
