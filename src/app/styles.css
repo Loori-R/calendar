@@ -5,8 +5,7 @@
 }
 
 table {
-  width: 90vw;
-  height: 80vh;
+  max-width: 99vw;
   min-height: 600px;
   margin: auto;
   text-align: left;
@@ -16,7 +15,7 @@ table {
   color: #808080;
 }
 
-thead button {
+button {
   height: 30px;
   color: #666666;
   border: none;
@@ -24,7 +23,7 @@ thead button {
   box-shadow: inset 0 0 2px 1px #e4e5e5;
 }
 
-thead button:hover {
+button:hover{
   box-shadow: inset 0 0 4px 2px #d4d6d6;
 }
 
@@ -33,11 +32,13 @@ thead button:hover {
   font-size: 22px;
   vertical-align: middle;
   color: #000000;
+  text-align: center;
 }
 
 .controls_months div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 100%;
 }
 
@@ -54,8 +55,8 @@ thead button:hover {
 }
 
 tbody td {
-  width: 12%;
-  height: 12%;
+  width:14vw;
+  height: 18vh;
   border: 1px solid #ebecec;
   padding: 20px 15px;
   vertical-align: text-top;
@@ -67,7 +68,7 @@ tbody td {
 }
 
 .another_month .date {
-  color: #cccccc;
+  color: #ACACAC;
 }
 
 .active_cell {
@@ -123,7 +124,7 @@ tbody td {
   height: 150px;
 }
 
-.event_form input[type="button"] {
+.event_form button {
   width: 70px;
   height: 30px;
   margin-right: 15px;
@@ -141,8 +142,40 @@ tbody td {
 }
 
 .event_form .close {
-  width: 90%;
-  margin: -20px auto 5px;
-  text-align: right;
+  margin: -20px 15px 5px 5px;
+  align-self: end;
   cursor: pointer;
+}
+
+.event_info {
+  display: flex;
+  flex-direction: column;
+  max-height: 300px;
+  max-width: 300px;
+  overflow: auto;
+}
+
+.event_info hr{
+  color:#ACACAC
+}
+
+.event_info span {
+  word-break: break-all;
+}
+
+.event_participants{
+  margin-bottom: 5px;
+}
+
+.event_description{
+  text-transform: none;
+}
+
+.event_name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+td.has_event{
+  background: #b8d6ed;
 }
