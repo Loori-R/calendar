@@ -4,6 +4,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  height: 100vh;
+}
+
 table {
   width: 90%;
   height: 75%;
@@ -57,17 +61,26 @@ button:hover {
   background: #f3f4f4;
 }
 
+thead td {
+  padding-bottom: 20px;
+}
+
 tbody td {
   width: 100%;
-  height: 100%;
+  height: 15vh;
+  min-height: 50px;
   border: 1px solid #ebecec;
   padding: 20px 15px;
   vertical-align: text-top;
   box-sizing: border-box;
 }
 
+td.has_event {
+  background: #b8d6ed;
+}
+
 .another_month .date {
-  color: #ACACAC;
+  color: #acacac;
 }
 
 .active_cell {
@@ -84,7 +97,7 @@ tbody td {
   flex-direction: column;
   align-items: center;
   background: #ffffff;
-  border-radius: 5px;
+  border-radius: 2px;
   filter: drop-shadow(0 0 4px #b3b3b3);
 }
 
@@ -109,11 +122,12 @@ tbody td {
   margin: auto;
 }
 
-.event_form input, .event_form textarea {
+.event_form input,
+.event_form textarea {
   width: 80%;
   box-shadow: inset 0 0 4px 2px #d4d6d6;
   border: none;
-  border-radius: 5px;
+  border-radius: 2px;
   padding: 5px;
 }
 
@@ -130,14 +144,14 @@ tbody td {
   cursor: pointer;
 }
 
-.event_form input[type="text"], .event_form input[type="date"] {
+.event_form input {
   margin: 3px auto;
   height: 40px;
   transition: box-shadow 2s;
 }
 
 .event_form .warning {
-  box-shadow: inset 0 0 4px 2px #FF2929;
+  box-shadow: inset 0 0 4px 2px #ff2929;
 }
 
 .event_form .close {
@@ -146,16 +160,43 @@ tbody td {
   cursor: pointer;
 }
 
+.event_form_short {
+  height: auto;
+}
+
+.event_form_short:before {
+  align-self: start;
+  content: " ";
+  position: relative;
+  left: 20px;
+  top: -35px;
+  border: 20px solid transparent;
+  border-bottom: 15px solid #ffffff;
+  display: block;
+  width: 0;
+  height: 0;
+}
+.event_form_short input {
+  width: 82%;
+  height: 30px;
+}
+.event_form_short button {
+  width: 70px;
+  height: 25px;
+  align-self: flex-start;
+  margin: 13px 30px;
+}
+
 .event_info {
   display: flex;
   flex-direction: column;
-  max-height: 300px;
-  max-width: 300px;
+  max-height: 100%;
+  max-width: 100%;
   overflow: auto;
 }
 
 .event_info hr {
-  color: #ACACAC
+  color: #acacac;
 }
 
 .event_info span {
@@ -173,8 +214,4 @@ tbody td {
 .event_name {
   font-weight: bold;
   margin-bottom: 10px;
-}
-
-td.has_event {
-  background: #b8d6ed;
 }
