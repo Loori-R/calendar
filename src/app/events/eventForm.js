@@ -1,4 +1,4 @@
-import createInputs from "./inputs";
+import CreateInputs from "./inputs";
 import hasValue from "./listeners/hasValue";
 import eventTemplate from "./template/eventTemplate";
 import btnReadyClick from "./listeners/btnReadyClick";
@@ -20,14 +20,10 @@ const eventForm = (top, right, date, elem) => {
   };
   const eventFromLocal = localStorage.getItem(date);
   const eventInfo = JSON.parse(eventFromLocal) || defaultEvent;
-  const inputs = createInputs(eventInfo, date, hasValue);
+  const classInputs = new CreateInputs(eventInfo, date, hasValue);
+  const inputs = classInputs.createAll();
 
-  const btnClose = document.createElement("span");
-  btnClose.className = "close";
-  btnClose.textContent = "x";
-  btnClose.addEventListener("click", () => {
-    form.remove();
-  });
+  const btnClose = classInputs.createClose(form);
 
   const btnReady = document.createElement("button");
   btnReady.textContent = "Готово";

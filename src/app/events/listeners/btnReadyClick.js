@@ -20,13 +20,17 @@ const btnReady = (res, inputs, eventTemplate, elem, form, today) => {
 
   form.remove();
   localStorage.setItem(date.value, JSON.stringify(res));
-  const eventHTML = eventTemplate(res.eventName, res.participants, res.description);
+  const eventHTML = eventTemplate(
+    res.eventName,
+    res.participants,
+    res.description
+  );
 
   const hasEvent = elem.children[elem.children.length - 1] || false;
   if (elem.dataset.event) {
     hasEvent.remove();
   }
-
+  elem.classList.add("has_event");
   elem.dataset.event = true;
   elem.insertAdjacentHTML("beforeend", eventHTML);
 };
