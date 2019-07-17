@@ -1,18 +1,9 @@
 import CreateInputs from "./inputs";
-import hasValue from "./listeners/hasValue";
 import eventTemplate from "./template/eventTemplate";
 import btnReadyClick from "./listeners/btnReadyClick";
 import btnDeleteClick from "./listeners/btnDeleteClick";
 
 const eventForm = (top, right, date, elem) => {
-  const form = document.createElement("div");
-  form.id = "form_event";
-  form.classList.add("event_form");
-  form.style.cssText = `
-    top:${top}px;
-    left:${right + 20}px;
-    `;
-
   const defaultEvent = {
     eventName: "",
     description: "",
@@ -20,21 +11,22 @@ const eventForm = (top, right, date, elem) => {
   };
   const eventFromLocal = localStorage.getItem(date);
   const eventInfo = JSON.parse(eventFromLocal) || defaultEvent;
-  const classInputs = new CreateInputs(eventInfo, date, hasValue);
+  const classInputs = new CreateInputs(eventInfo, date);
+
+  const container = classInputs.createContainer(top, right + 20, "event_form");
+
   const inputs = classInputs.createAll();
 
-  const btnClose = classInputs.createClose(form);
+  const btnClose = classInputs.createClose(container);
 
-  const btnReady = document.createElement("button");
-  btnReady.textContent = "Готово";
+  const btnReady = classInputs.createBtn("Готово");
   btnReady.addEventListener("click", () => {
-    btnReadyClick(eventInfo, inputs, eventTemplate, elem, form, date);
+    btnReadyClick(eventInfo, inputs, eventTemplate, elem, container, date);
   });
 
-  const delBtn = document.createElement("button");
-  delBtn.textContent = "Удалить";
+  const delBtn = classInputs.createBtn("Удалить");
   delBtn.addEventListener("click", () => {
-    btnDeleteClick(inputs, elem, form);
+    btnDeleteClick(inputs, elem, container);
   });
 
   const containerForBtn = document.createElement("p");
@@ -42,13 +34,13 @@ const eventForm = (top, right, date, elem) => {
   containerForBtn.insertAdjacentElement("afterbegin", btnReady);
 
   for (let i in inputs) {
-    form.insertAdjacentElement("beforeend", inputs[i]);
+    container.insertAdjacentElement("beforeend", inputs[i]);
   }
 
-  form.insertAdjacentElement("beforeend", containerForBtn);
-  form.insertAdjacentElement("afterbegin", btnClose);
+  container.insertAdjacentElement("beforeend", containerForBtn);
+  container.insertAdjacentElement("afterbegin", btnClose);
 
-  return form;
+  return container;
 };
 
 export default eventForm;
