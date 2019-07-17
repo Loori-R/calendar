@@ -1,10 +1,9 @@
 class CreateInputs {
-  constructor(eventInfo = {}, date, hasValue) {
+  constructor(eventInfo = {}, date) {
     this.name = eventInfo.eventName || "";
     this.participants = eventInfo.participants || "";
     this.description = eventInfo.description || "";
     this.date = date;
-    this.hasValue = hasValue;
   }
 
   createName(placeholder) {
@@ -14,15 +13,14 @@ class CreateInputs {
     name.placeholder = placeholder || "Событие";
     return name;
   }
+
   createDate() {
     const dateField = document.createElement("input");
     dateField.value = this.date;
     dateField.type = "date";
-    dateField.addEventListener("change", () => {
-      hasValue(dateField);
-    });
     return dateField;
   }
+
   createParticipants() {
     const participants = document.createElement("input");
     participants.type = "text";
@@ -30,6 +28,7 @@ class CreateInputs {
     participants.placeholder = "Имена участников";
     return participants;
   }
+
   createDesc() {
     const description = document.createElement("textarea");
     description.value = this.description;
@@ -47,6 +46,23 @@ class CreateInputs {
     return btnClose;
   }
 
+  createBtn(text) {
+    const btn = document.createElement("button");
+    btn.textContent = text;
+    return btn;
+  }
+
+  createContainer(top, right, classname) {
+    const conainer = document.createElement("div");
+    conainer.id = "form_event";
+    conainer.classList.add(classname);
+    conainer.style.cssText = `
+    top:${top}px;
+    left:${right}px;
+    `;
+    return conainer;
+  }
+
   createAll() {
     return {
       name: this.createName(),
@@ -56,4 +72,5 @@ class CreateInputs {
     };
   }
 }
+
 export default CreateInputs;
