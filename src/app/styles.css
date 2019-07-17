@@ -5,7 +5,8 @@
 }
 
 table {
-  max-width: 99vw;
+  width: 90%;
+  height: 75%;
   min-height: 600px;
   margin: auto;
   text-align: left;
@@ -13,6 +14,7 @@ table {
   border-spacing: 0px;
   border-collapse: collapse;
   color: #808080;
+  table-layout: fixed;
 }
 
 button {
@@ -23,12 +25,12 @@ button {
   box-shadow: inset 0 0 2px 1px #e4e5e5;
 }
 
-button:hover{
+button:hover {
   box-shadow: inset 0 0 4px 2px #d4d6d6;
 }
 
 .controls_months {
-  height: 30px;
+  min-height: 30px;
   font-size: 22px;
   vertical-align: middle;
   color: #000000;
@@ -52,19 +54,16 @@ button:hover{
 .today {
   width: 80px;
   font-size: 16px;
+  background: #f3f4f4;
 }
 
 tbody td {
-  width:14vw;
-  height: 18vh;
+  width: 100%;
+  height: 100%;
   border: 1px solid #ebecec;
   padding: 20px 15px;
   vertical-align: text-top;
   box-sizing: border-box;
-}
-
-.today {
-  background: #f3f4f4;
 }
 
 .another_month .date {
@@ -78,12 +77,12 @@ tbody td {
 }
 
 .event_form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: absolute;
   width: 400px;
   height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: #ffffff;
   border-radius: 5px;
   filter: drop-shadow(0 0 4px #b3b3b3);
@@ -155,19 +154,19 @@ tbody td {
   overflow: auto;
 }
 
-.event_info hr{
-  color:#ACACAC
+.event_info hr {
+  color: #ACACAC
 }
 
 .event_info span {
   word-break: break-all;
 }
 
-.event_participants{
+.event_participants {
   margin-bottom: 5px;
 }
 
-.event_description{
+.event_description {
   text-transform: none;
 }
 
@@ -176,6 +175,6 @@ tbody td {
   margin-bottom: 10px;
 }
 
-td.has_event{
+td.has_event {
   background: #b8d6ed;
 }
