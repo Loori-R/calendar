@@ -56,10 +56,29 @@ class CreateInputs {
     const conainer = document.createElement("div");
     conainer.id = "form_event";
     conainer.classList.add(classname);
+
+    const clientHeight = document.documentElement.clientHeight;
+    const clientWidth = document.documentElement.clientWidth;
+    const width = 400;
+    const height = 500;
+    const posX = right + width;
+    const posY = top + height;
+    const differenceX = posX - clientWidth;
+    const differenceY = posY - clientHeight;
+
+    if (posX > clientWidth) {
+      right = right - differenceX;
+    }
+    if (posY > clientHeight) {
+      top = top - differenceY;
+    }
+
     conainer.style.cssText = `
-    top:${top}px;
-    left:${right}px;
-    `;
+      width: ${width}px;
+      height: ${height}px;
+      top:${top}px;
+      left:${right}px;`;
+
     return conainer;
   }
 
