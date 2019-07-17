@@ -1,7 +1,7 @@
 import { square } from "./settings";
 import addEvent from "../events/addEvent";
 import createThead from "./thead/thead";
-import DateInfo from "./helpers/dateInfo";
+import DateInfo from "../helpers/dateInfo";
 import eventTemplate from "../events/template/eventTemplate";
 
 const createCalendar = (currentDate = new Date()) => {
@@ -63,7 +63,7 @@ const createCalendar = (currentDate = new Date()) => {
     const eventDay = localStorage.getItem(cell.dataset.date);
     if (eventDay) {
       cell.dataset.event = true;
-      cell.classList.add('has_event')
+      cell.classList.add("has_event");
       const infoEvent = JSON.parse(eventDay);
       const eventName = infoEvent.eventName;
       const description = infoEvent.description || "";
