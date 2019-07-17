@@ -19,6 +19,7 @@ table {
   border-collapse: collapse;
   color: #808080;
   table-layout: fixed;
+  margin-bottom: 500px;
 }
 
 button {
@@ -218,7 +219,6 @@ td.has_event {
   table {
     height: auto;
     font-size: 14px;
-    margin-bottom: 300px;
   }
 
   .typical_day {
@@ -247,7 +247,6 @@ td.has_event {
     display: none;
   }
   .event_form textarea {
-    height: 30px;
     margin: auto;
   }
   .event_form p {

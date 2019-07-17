@@ -57,10 +57,9 @@ class CreateInputs {
     conainer.id = "form_event";
     conainer.classList.add(classname);
 
-    const clientHeight = document.documentElement.clientHeight;
     const clientWidth = document.documentElement.clientWidth;
     const width = clientWidth >= 1024 ? 400 : 200;
-    const height = clientHeight >= 1020 ? 500 : 300;
+    const height = 500;
     const posX = right + width;
     const differenceX = posX - clientWidth;
 
