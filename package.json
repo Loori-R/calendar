@@ -4,7 +4,8 @@
   "description": "event calendar (frontend part)",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --history-api-fallback --inline --progress"
+    "start": "webpack-dev-server --history-api-fallback --inline --progress",
+    "build": "webpack -p"
   },
   "repository": {
     "type": "git",
