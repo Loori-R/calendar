@@ -58,8 +58,7 @@ class CreateInputs {
     conainer.classList.add(classname);
 
     const clientWidth = document.documentElement.clientWidth;
-
-    const width = clientWidth >= 1024 ? 400 : 200;
+    const width = 400;
     const height = 500;
     const posX = right + width;
     const differenceX = posX - clientWidth;
