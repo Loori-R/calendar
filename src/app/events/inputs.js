@@ -59,8 +59,8 @@ class CreateInputs {
 
     const clientHeight = document.documentElement.clientHeight;
     const clientWidth = document.documentElement.clientWidth;
-    const width = 400;
-    const height = 500;
+    const width = clientWidth >= 1024 ? 400 : 200;
+    const height = clientHeight >= 1020 ? 500 : 300;
     const posX = right + width;
     const posY = top + height;
     const differenceX = posX - clientWidth;

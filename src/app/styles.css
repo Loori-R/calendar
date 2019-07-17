@@ -213,3 +213,41 @@ td.has_event {
   font-weight: bold;
   margin-bottom: 10px;
 }
+
+@media only screen and (max-width: 1024px) {
+  table {
+    font-size: 14px;
+  }
+
+  .typical_day {
+    overflow: hidden;
+    padding: 5px;
+  }
+
+  thead tr {
+    display: flex;
+    width: 90vw;
+    margin: auto;
+    justify-content: center;
+  }
+
+  thead tr td {
+    margin: 20px;
+  }
+
+  .event_participants {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0;
+  }
+
+  .event_description {
+    display: none;
+  }
+  .event_form textarea {
+    margin: auto;
+  }
+  .event_form p {
+    margin: 10px auto;
+  }
+}
