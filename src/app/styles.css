@@ -216,7 +216,9 @@ td.has_event {
 
 @media only screen and (max-width: 1024px) {
   table {
+    height: auto;
     font-size: 14px;
+    margin-bottom: 300px;
   }
 
   .typical_day {
@@ -245,6 +247,7 @@ td.has_event {
     display: none;
   }
   .event_form textarea {
+    height: 30px;
     margin: auto;
   }
   .event_form p {

@@ -62,15 +62,10 @@ class CreateInputs {
     const width = clientWidth >= 1024 ? 400 : 200;
     const height = clientHeight >= 1020 ? 500 : 300;
     const posX = right + width;
-    const posY = top + height;
     const differenceX = posX - clientWidth;
-    const differenceY = posY - clientHeight;
 
     if (posX > clientWidth) {
       right = right - differenceX;
-    }
-    if (posY > clientHeight) {
-      top = top - differenceY;
     }
 
     conainer.style.cssText = `
