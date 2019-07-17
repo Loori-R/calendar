@@ -102,7 +102,7 @@ td.has_event {
 
 .event_form:before {
   align-self: start;
-  content: " ";
+  content: ' ';
   position: relative;
   left: -35px;
   top: 20px;
@@ -118,7 +118,7 @@ td.has_event {
   width: 80%;
   align-self: start;
   align-items: start;
-  margin: auto;
+  margin: 20px auto;
 }
 
 .event_form input,
@@ -155,7 +155,7 @@ td.has_event {
 
 .event_form .close {
   margin: -20px 15px 5px 5px;
-  align-self: end;
+  align-self: flex-end;
   cursor: pointer;
 }
 
@@ -165,7 +165,7 @@ td.has_event {
 
 .event_form_short:before {
   align-self: start;
-  content: " ";
+  content: ' ';
   position: relative;
   left: 20px;
   top: -35px;
@@ -248,8 +248,5 @@ td.has_event {
   }
   .event_form textarea {
     margin: auto;
-  }
-  .event_form p {
-    margin: 10px auto;
   }
 }
