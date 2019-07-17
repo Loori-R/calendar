@@ -9,10 +9,10 @@ btnPrev.textContent = "◀";
 
 const clickMonth = param => {
   const root = document.getElementById("root");
-  const tableDate = root.firstChild.dataset.date;
+  const tableDate = root.childNodes[1].dataset.date;
   const date = new Date(tableDate);
   date.setMonth(date.getMonth() + param);
-  insertIn(root, createCalendar(date));
+  insertIn(root, createCalendar(date), 1);
 };
 
 btnNext.addEventListener("click", () => {

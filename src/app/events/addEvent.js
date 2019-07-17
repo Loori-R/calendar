@@ -26,7 +26,7 @@ const addEvent = e => {
 
   const activeEventForm = document.getElementById("form_event");
   if (activeEventForm) {
-    activeEventForm.remove(1);
+    activeEventForm.remove();
   }
 
   elem.insertAdjacentElement("beforeend", eventForm(top, right, date, elem));

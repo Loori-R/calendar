@@ -1,6 +1,6 @@
-const insertIn = (targetElement, element) => {
+const insertIn = (targetElement, element, i) => {
   if (targetElement.hasChildNodes()) {
-    targetElement.replaceChild(element, root.childNodes[0]);
+    targetElement.replaceChild(element, targetElement.childNodes[i]);
   } else {
     targetElement.insertAdjacentElement("beforebegin", element);
   }

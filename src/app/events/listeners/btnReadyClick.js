@@ -1,3 +1,5 @@
+import hasValue from "../../helpers/warning";
+
 const btnReady = (res, inputs, eventTemplate, elem, form, today) => {
   const date = inputs.date;
   const name = inputs.name;
@@ -12,7 +14,7 @@ const btnReady = (res, inputs, eventTemplate, elem, form, today) => {
   }
 
   if (date.value === "") {
-    date.classList.toggle("warning");
+    hasValue(date);
     return;
   }
   res.description = description.value;
